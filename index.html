@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Users/ornellafierro/Documents/codecademy/projects/BuildCheatSheet/resources/CSS/index.css">
+    <title>Ornella Cheat Sheet</title>
+  </head>
+  <body>
+    <header>
+      <h1>CSS Selectors Reference</h1>
+    </header>
+    <!--In this section there is a table with some selectors-->
+    <section class="selectors">
+      <h2>CSS Selectors</h2>
+      <p>
+        The CSS selectors module defines the patterns to select elements to
+        which a set of CSS rules are then applied along with their specificity.
+      </p>
+      <table>
+        <caption>
+          The CSS selectors module provides us with more than 60 selectors and
+          five combinators
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Selector</th>
+            <th scope="col">Example</th>
+            <th scope="col">Example Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">.class</th>
+            <td>.intro</td>
+            <td>Selects all elements with class="intro"</td>
+          </tr>
+          <tr>
+            <th scope="row">.class1.class2</th>
+            <td>.name1.name2</td>
+            <td>Selects all elements with both name1 and name2 set within its class attribute</td>
+          </tr>
+          <tr>
+            <th scope="row">.class1 .class2</th>
+            <td>.name1 .name2</td>
+            <td>Selects all elements with name2 that is a descendant of an element with name1</td>
+          </tr>
+          <tr>
+            <th scope="row">#id</th>
+            <td>#firstname</td>
+            <td>Selects the element with id="firstname"</td>
+          </tr>
+          <tr>
+            <th scope="row">*</th>
+            <td>*</td>
+            <td>Selects all elements</td>
+          </tr>
+          <tr>
+            <th scope="row">element</th>
+            <td>p</td>
+            <!--Can be useful to remember that if I want to escape html and render a piece of code, just put it between &lt and &gt (i.e. <p> becomes &ltp&gt)-->
+            <td>Selects all &ltp&gt elements</td>
+          </tr>
+          <tr>
+            <th scope="row">element.class</th>
+            <td>p.intro	</td>
+            <td>Selects all &ltp&gt elements with class="intro"</td>
+          </tr>
+          <tr>
+            <th scope="row">element,element	</th>
+            <td>div, p	</td>
+            <td>Selects all &ltdiv&gt elements and all &ltp&gt elements</td>
+          </tr>
+          <tr>
+            <th scope="row">element element	</th>
+            <td>div p	</td>
+            <td>Selects all &ltp&gt elements inside &ltdiv&gt elements	</td>
+          </tr>
+          <tr>
+            <th scope="row">element>element	</th>
+            <td>div > p	</td>
+            <td>Selects all &ltp&gt elements where the parent is a &ltdiv&gt element</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        More selectors at this link: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors" target="_blank">CSS Selectors mdn web doc</a>
+      </p>
+    </section>
+    <!--Here starts the second section, with another table-->
+    <section class="specifity">
+      <h2>CSS Specifity</h2>
+      <p>
+        If there are two or more CSS rules that point to the same element, the selector with the highest specificity value will "win", and its style declaration will be applied to that HTML element.Think of specificity as a score/rank that determines which style declaration is ultimately applied to an element.
+      </p>
+      <table>
+        <caption>How to Calculate Specificity?</caption>
+        <thead>
+          <tr>
+            <th scope="col">Selector</th>
+            <th scope="col">Specificity Value</th>
+            <th scope="col">Calculation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">p</th>
+            <td>1</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <th scope="row">p.test</th>
+            <td>	11	</td>
+            <td>1 + 10</td>
+          </tr>
+          <tr>
+            <th scope="row">p#demo</th>
+            <td>101	</td>
+            <td>1 + 100</td>
+          </tr>
+          <tr>
+            <th scope="row">&ltp style="color: pink;"&gt</th>
+            <td>1000</td>
+            <td>1000</td>
+          </tr>
+          <tr>
+            <th scope="row">#demo	</th>
+            <td>100	</td>
+            <td>100</td>
+          </tr>
+          <tr>
+            <th scope="row">.test	</th>
+            <td>10</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <th scope="row">p.test1.test2	</th>
+            <td>21</td>
+            <td>1 + 10 + 10</td>
+          </tr>
+          <tr>
+            <th scope="row">#navbar p#demo</th>
+            <td>201</td>
+            <td>100 + 1 + 100</td>
+          </tr>
+          <tr>
+            <th scope="row">*	</th>
+            <td>0</td>
+            <td>0 (the universal selector is ignored)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Every CSS selector has its place in the specificity hierarchy.There are four categories which define the specificity level of a selector:
+        <ol>
+          <li>Inline styles - Example: &ltp style="color: pink;"&gt</li>
+          <li>IDs - Example: #navbar</li>
+          <li>Classes, pseudo-classes, attribute selectors - Example: .test, :hover, [href]</li>
+          <li>Elements and pseudo-elements - Example: h1, ::before</li>
+        </ol>
+      </p>  
+    </section>
+  </body>
+</html>
